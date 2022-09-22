@@ -1,0 +1,96 @@
+@media screen and (min-width:280px) and (max-width:590px){
+    /* #expand {
+                width: 30%;
+            } */
+            .wrapper{
+                /* background:blue; */
+            }
+            .hero-section{
+                margin-top: 2em;
+            }
+            #tab i {
+                margin-block: 25px;
+                padding: 5px 10px;
+                cursor: pointer;
+            }
+            #tab {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: var(--h-full);
+                box-shadow: var(--shadow);
+                width: 3em;
+                background: var(--black);
+                position: fixed;
+                /* border: 2px solid red; */
+                /* transition: 500ms; */
+            }
+                        .showcase {
+                            /* border: 4px solid green; */
+                            /* width: 98%; */
+                        }
+            #movies-select ,#movie-preview{
+                margin-left:3em;
+                /* border: 2px solid yellow; */
+                /* margin-left: 10px; */
+                /* width: 200%; */
+                /* width: 120vw; */
+            }
+            #movie-cards{
+                justify-content: flex-start;
+                border: 2px solid red;
+                /* align-items: left; */
+                /* display: flex; */
+                /* border: 2px solid green; */
+                /* width: 150%; */
+                    /* padding: 0%; */
+                        /* margin: 0%; */
+            }
+                        #movies-select {
+                        }
+            #movies-select{
+                /* padding: 0%; */
+                /* margin: 0%; */
+                /* justify-content: stretch; */
+                /* align-items: flex-start; */
+            }
+            .genre-name{
+                /* background: ; */
+            }
+                        #movie-cards {
+                            /* justify-content: center; */
+                            display: grid;
+                            gap: 30px 10px;
+                            grid-template-columns: repeat(3,1fr);
+                            /* flex-wrap: wrap; */
+                            /* position: relative; */
+                            /* top: 3.5em; */
+                        }
+                        .card {
+                            
+                           /* min-width: 130px; */
+                           /* width: 150px; */
+                            /* margin: 10px; */
+                            /* min-width: 80px; */
+                            /* width: 120px; */
+                            cursor: pointer;
+                            /* padding: 5px; */
+                            /* align-items: center; */
+                            /* backdrop-filter: var(--glass-blur);
+                            -webkit-backdrop-filter: var(--glass-blur);
+                            background-color: var(--glass-color); */
+                            /* border-radius: 10px; */
+                            /* border: var(--glass-border); */
+                        }
+            
+                        .card img {
+                            width:100%;
+                            /* height: 180px; */
+                            /* object-fit: cover; */
+                            /* overflow: hidden; */
+                        }
+            
+                        .card h3 {
+                            /* padding: 10px; */
+                        }
+    }
