@@ -9,7 +9,6 @@
     background: var(--black);
     position: fixed;
     transition: 500ms;
-    background: red;
   }
   .textonbg {
     height: 25em;
