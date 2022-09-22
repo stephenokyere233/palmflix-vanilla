@@ -1,4 +1,4 @@
-@media screen and (min-width:600px){
+@media screen and (min-width:700px){
     #tab {
         display: flex;
         flex-direction: column;
@@ -10,6 +10,22 @@
         position: fixed;
         transition: 500ms;
     }
+        .textonbg {
+            height: 25em;
+            /* background: url(/assets/cover.jpg);
+            background-color: rgba(0, 0, 0, .2);
+            background-size: cover;
+            object-fit: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; */
+        }
+                .other-info {
+                    display: flex;
+                    padding: 5px 20px;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
     
     #tab i {
         margin-block: 25px;
@@ -36,14 +52,5 @@
 .card {
     margin: 10px;
     width: 170px;
-    /* min-width: 200px;
-    cursor: pointer;
-    padding: 5px;
-    align-items: center;
-    /* backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    background-color: var(--glass-color);
-    border-radius: 10px;
-    border: var(--glass-border);  */
 }
 }

@@ -102,6 +102,9 @@ header {
 .card {
     /* min-width: 200px; */
     cursor: pointer;
+        border-radius: 10px;
+    height: 15em;
+    /* padding: 5px; */
     /* padding: 5px; */
     /* align-items: center; */
     backdrop-filter: var(--glass-blur);
@@ -113,7 +116,7 @@ header {
 
 .card img {
     /* width: 200px; */
-    height: 180px;
+    height: 100%;
     object-fit: cover;
     overflow: hidden;
 }

@@ -4,7 +4,6 @@
 }
 .textonbg{
     background: url(/assets/cover.jpg);
-    height: 25em;
     background-color: rgba(0,0,0,.2);
     background-size: cover;
     object-fit: cover;
@@ -32,10 +31,11 @@
     color: white;
     /* font-weight: bold; */
     background: var(--brand);
-
+    
 }
 .marks{
-    color: var(--brand)
+    color: var(--brand);
+    font-size: 10px;
 }
 .marks span{
     color: var(--text);
