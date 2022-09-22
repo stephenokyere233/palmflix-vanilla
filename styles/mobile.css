@@ -33,7 +33,7 @@
     grid-template-columns: repeat(3, 1fr);
   }
   .card {
-    height: 15em;
+    height: 13em;
   }
 
   .card img {
