@@ -5,135 +5,120 @@
 @import url(./preview.css);
 
 header {
-    display: flex;
-    position: fixed;
-    z-index: 1;
-    height: 4em;
-    background-color:var(--black);
-    justify-content: space-between;
-    padding: 20px;
-    
-    width: 100%;
-    box-shadow:var(--shadow);
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  height: 4em;
+  background-color: var(--black);
+  justify-content: space-between;
+  padding: 20px;
+
+  width: 100%;
+  box-shadow: var(--shadow);
 }
 .logo {
-    font-size: 1.5rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color:var(--brand);
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand);
 }
 
 .hero-section {
-    display: flex;
-    margin-top: 4em;
-    /* height: 90vh; */
-    /* border: 2px solid yellow; */
+  display: flex;
+  margin-top: 4em;
 }
 
-.hamburger{
-    width: 100%;
-    height: 3.5em;
-    display: flex;
-    background: var(--brand);
-    justify-content: center;
-    cursor: pointer;
-    /* border: 2px solid red; */
-
+.hamburger {
+  width: 100%;
+  height: 3.5em;
+  display: flex;
+  background: var(--brand);
+  justify-content: center;
+  cursor: pointer;
 }
 .nav-list {
-    padding-block:10px ;
-    /* border: 2px solid greenyellow; */
+  padding-block: 10px;
 }
-.nav-list ul{
-    display: flex;
-    flex-direction: column;
-    margin-left: 30px;
-    font-size: 20px;
-    padding-block: 30px;
-    text-transform: capitalize;
+.nav-list ul {
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 30px; */
+  /* font-size: 20px; */
+  padding-block: 30px;
+  text-transform: capitalize;
 }
-.nav-item{
-    margin-block:15px; 
-    display: flex;
-    cursor: pointer;
-    text-align: left;
+.nav-item {
+  margin-block: 15px;
+  display: flex;
+  cursor: pointer;
+  text-align: left;
 }
-.nav-item p{
-    padding-left:10px ;
+.nav-item p {
+  padding-left: 10px;
 }
-#searchBox{
-    height: 2rem;
-    border-radius: 10px;
-    text-transform: capitalize;
-    font-size: 18px;
-    width: 70%;
-    text-align: center;
-    margin-left: 8px;
+#searchBox {
+  /* height: 2rem; */
+  /* border-radius: 10px; */
+  text-transform: capitalize;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  width: 70%;
+  text-align: center;
+  margin-left: 8px;
 }
-.searchForm{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#movies-select{
-    /* margin-left: 5.5%; */
-    /* border: 2px solid red; */
+.searchForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #movie-cards {
-    flex-wrap: wrap;
-    position: relative;
-    top: 3.5em;
+  flex-wrap: wrap;
+  position: relative;
 }
-.showcase{
-    width: 100%;
+.showcase {
+  width: 100%;
 }
 .genre-name {
-    text-transform: capitalize;
-    padding: 10px;
-    height: 3.5em;
-    text-align: center;
-    /* width: 100%; */
-    background-color: var(--bg);
-    z-index: 1;
-    position: fixed;
-    /* box-shadow:var(--shadow); */
-    width: 100%;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+  text-align: center;
+  width: 100%;
+  background-color: var(--bg);
+  z-index: 1;
+  position: fixed;
 }
 .card {
-    /* min-width: 200px; */
-    cursor: pointer;
-        border-radius: 10px;
-    height: 15em;
-    /* padding: 5px; */
-    /* padding: 5px; */
-    /* align-items: center; */
-    backdrop-filter: var(--glass-blur);
+  cursor: pointer;
+  border-radius: 10px;
+  max-height: 18em;
+  /* backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter:var(--glass-blur);
-    background-color:var(--glass-color);
-    border-radius: 10px;
-    border: var(--glass-border);
+    background-color:var(--glass-color); */
+  /* border: var(--glass-border); */
 }
 
 .card img {
-    /* width: 200px; */
-    height: 100%;
-    object-fit: cover;
-    overflow: hidden;
+  border-radius: 10px;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 .card h3 {
-    padding: 10px;
+  padding: 10px;
 }
-#expand{
-    display: none;
-    position: fixed;
-    background: var(--black);
-    height: 100%;
-    z-index: 2;
-    min-width: 200px;
-    transition: 500ms;
-    width: 18.5%;
+#expand {
+  display: none;
+  position: fixed;
+  min-width: 200px;
+  height: 100%;
+  z-index: 2;
+  background: var(--black);
 }
-.hide{
-    display: none;
+.hide {
+  display: none;
 }
