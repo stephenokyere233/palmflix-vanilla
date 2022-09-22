@@ -38,7 +38,7 @@
             }
             #movie-cards{
                 justify-content: flex-start;
-                border: 2px solid red;
+/*                 border: 2px solid red; */
 
                 /* align-items: left; */
                 /* display: flex; */
