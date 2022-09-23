@@ -64,6 +64,8 @@
 .other-info {
   display: flex;
   padding: 5px 20px;
+  min-width: 300px;
+  border: 2px solid red;
   flex-direction: column;
   justify-content: space-around;
 }
@@ -95,3 +97,7 @@
 .cast-card p {
   text-align: center;
 }
+/* #movie-preview{
+  background: red;
+  pointer-events:auto;
+} */

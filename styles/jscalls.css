@@ -1,0 +1,11 @@
+.hide {
+  display: none;
+}
+.opacity{
+    opacity: 30%;
+}
+.disablescroll{
+    overflow-y: hidden;
+    /* border: 2px solid red; */
+    
+}
