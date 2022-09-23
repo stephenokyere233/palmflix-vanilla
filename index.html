@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Palmflix</title>
     <script
-      src="https://kit.fontawesome.com/ebf7970d3f.js"
-      crossorigin="anonymous"
-    ></script>
+    src="https://kit.fontawesome.com/ebf7970d3f.js"
+    crossorigin="anonymous"
+    defer></script>
+    <script src="./scripts/togglemode.js" type="module" defer ></script>
     <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body>
@@ -26,9 +27,9 @@
           </div>
           <i class="fa-solid fa-magnifying-glass fa-xl"></i>
           <i class="fa-solid fa-house fa-xl"></i>
-          <i class="fa-solid fa-clapperboard fa-xl"></i>
           <i class="fa-solid fa-fire-flame-curved fa-xl"></i>
           <i class="fa-solid fa-tv fa-xl"></i>
+          <i class="fa-solid fa-clapperboard fa-xl"></i>
         </div>
         <aside id="expand">
           <div class="hamburger" class="nav-item" style="align-items: center ; z-index: 3;">
@@ -70,52 +71,54 @@
  <div class="genre-name"><h1>Discover Movies</h1></div>
           <section id="movie-cards">
             <div class="card">
-                <img src="./assets/cover.jpg" alt="" />
+
+              <img src="./assets/cover.jpg" alt="" class="skeleton" />
+             
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt=""class="skeleton" />
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
             </div>
             <div class="card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
             </div>
           </div>
          
@@ -124,7 +127,7 @@
 
           <!-- MOVIE PREVIEW -->
           <div id="movie-preview" class="hide">
-            <div class="textonbg">
+            <div class="textonbg skeleton">
               <button class="back">
                 Back
               </button>
@@ -140,18 +143,30 @@
             <div class="movie-info">
               <span class="rating"> 7.4 </span>
               <div class="other-info">
-                <div class="marks">
+                <div class="marks" >
+                  <!-- <div class="skeleton skeleton-text"></div> -->
                   Status: <span>Released</span>
                 </div>
                  <div class="marks">
+                  <!-- <div class="skeleton skeleton-text__body"></div> -->
+
                   Duration: <span>200mins</span>
                 </div>
                    <div class="marks">
+                  <!-- <div class="skeleton skeleton-text"></div> -->
+
                   Release Date: <span>2020-08-11</span>
                    </div>
               </div>
             </div>
             <div class="movie-description">
+              <!-- <div class=" skeleton skeleton-text"></div>
+              <div class=" skeleton skeleton-text skeleton-text__body"></div>
+              <div class=" skeleton skeleton-text"></div>
+              <div class=" skeleton skeleton-text skeleton-text__body"></div>
+
+              <div class=" skeleton skeleton-text"></div>
+              <div class=" skeleton skeleton-text skeleton-text__body"></div> -->
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde,
               enim earum vero magnam vitae debitis eaque quia, laudantium maxime
               quam accusamus ducimus tempore dolor pariatur mollitia sed
@@ -163,23 +178,23 @@
               <h2>Casts</h2>
               <div class="cast-list">
                 <div class="cast-card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
                   <p>lorem 5</p>
                 </div>
                 <div class="cast-card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
                   <p>lorem 5</p>
                 </div>
                 <div class="cast-card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
                   <p>lorem 5</p>
                 </div>
                 <div class="cast-card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
                   <p>lorem 5</p>
                 </div>
                 <div class="cast-card">
-                  <img src="./assets/cover.jpg" alt="" />
+                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
                   <p>lorem 5</p>
                 </div>
               </div>
@@ -192,7 +207,6 @@
     </div>
     <!-- movie preview -->
 
-    <script src="./scripts/togglemode.js" type="module"></script>
     <!-- <script src="queries.js"></script> -->
   </body>
 </html>
