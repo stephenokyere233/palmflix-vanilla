@@ -36,10 +36,10 @@
   margin: 0 10px;
 }
 .back {
-  padding: 10px;
+  padding: 5px 10px;
   border: none;
   cursor: pointer;
-  width: 100px;
+  width: 80px;
   border: 2px solid var(--brand);
   background: transparent;
   color: white;
@@ -64,8 +64,8 @@
 .other-info {
   display: flex;
   padding: 5px 20px;
-  min-width: 300px;
-  border: 2px solid red;
+  min-width: 200px;
+  /* border: 2px solid red; */
   flex-direction: column;
   justify-content: space-around;
 }

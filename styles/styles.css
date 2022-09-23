@@ -14,9 +14,18 @@ header {
   background-color: var(--black);
   justify-content: space-between;
   padding: 20px;
-
   width: 100%;
   box-shadow: var(--shadow);
+}
+#tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: var(--h-full);
+  box-shadow: var(--shadow);
+  background: var(--black);
+  position: fixed;
+  transition: 500ms;
 }
 .logo {
   font-size: 1.5rem;

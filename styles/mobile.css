@@ -8,14 +8,7 @@
     cursor: pointer;
   }
   #tab {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: var(--h-full);
-    box-shadow: var(--shadow);
     width: 3em;
-    background: var(--black);
-    position: fixed;
   }
 
   #movies-select,
@@ -83,7 +76,7 @@
     padding: 15px;
     gap: 30px 20px;
     grid-template-columns: repeat(2, 1fr);
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
   }
   .card {
     height: 14em;
