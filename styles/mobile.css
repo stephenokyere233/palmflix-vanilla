@@ -2,11 +2,7 @@
   .hero-section {
     margin-top: 2em;
   }
-  #tab i {
-    margin-block: 25px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
+ 
   #tab {
     width: 3em;
   }
