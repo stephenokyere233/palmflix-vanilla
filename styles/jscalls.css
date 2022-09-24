@@ -9,3 +9,6 @@
     /* border: 2px solid red; */
     
 }
+.active{
+    color: var(--brand);
+}

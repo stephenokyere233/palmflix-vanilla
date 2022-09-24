@@ -2,13 +2,12 @@
   .hero-section {
     margin-top: 2em;
   }
- 
+
   #tab {
     width: 3em;
   }
 
-  #movies-select,
-  #movie-preview {
+  #movies-select {
     margin-left: 3em;
   }
   #movie-cards {
@@ -16,10 +15,10 @@
   }
   #movie-cards {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
     padding: 5px;
     gap: 30px 20px;
     top: 3em;
-    grid-template-columns: repeat(3, 1fr);
   }
   .card {
     height: 13em;
@@ -65,6 +64,21 @@
     margin-left: 30px;
     font-size: 15px;
   }
+  .genre-name {
+  /* text-transform: capitalize;
+  border: 2px solid red;
+  
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 2em;
+  text-align: center; */
+  /* width:; */
+  width: 92%;
+  /* background-color: var(--bg);
+  z-index: 1;
+  position: fixed; */
+}
 }
 @media only screen and (max-width: 399px) {
   #movie-cards {

@@ -28,8 +28,7 @@
     background: var(--black);
     width: 18%;
   }
-  #movies-select,
-  #movie-preview {
+  #movies-select {
     margin-left: 5em;
   }
   #movie-cards {
@@ -40,6 +39,21 @@
   .card img {
     width: 100%;
   }
+  .genre-name {
+  /* text-transform: capitalize;
+  border: 2px solid red;
+  
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 2em;
+  text-align: center;
+  width:; */
+  width: 93%;
+  /* background-color: var(--bg);
+  z-index: 1;
+  position: fixed; */
+}
   .card {
     margin: 10px;
     width: 170px;

@@ -17,6 +17,18 @@ header {
   width: 100%;
   box-shadow: var(--shadow);
 }
+/* .btns{
+  width: 100%;
+  height: 5em;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  margin-top: 20em;
+  justify-content: center;
+  align-items: center;
+
+  border: 2px solid red;
+} */
 #tab {
   display: flex;
   flex-direction: column;
@@ -72,6 +84,9 @@ header {
     padding: 5px 10px;
     cursor: pointer;
   }
+  #tab i:active{
+    color: var(--brand);
+  }
 #searchBox {
   /* height: 2rem; */
   /* border-radius: 10px; */
@@ -91,22 +106,42 @@ header {
 #movie-cards {
   flex-wrap: wrap;
   position: relative;
+  /* border: 2px solid red; */
 }
 .showcase {
   width: 100%;
 }
+.genre-name div{
+  /* border: 2px solid blue; */
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+.genre-name button{
+  background: var(--brand);
+  border: none;
+  padding: 5px;
+}
 .genre-name {
   text-transform: capitalize;
+  /* border: 2px solid red; */
+  
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  height: 3em;
+  height: 2em;
   text-align: center;
-  width: 100%;
+  /* width:; */
+  /* width: 93%; */
   background-color: var(--bg);
   z-index: 1;
   position: fixed;
 }
+  #movie-preview{
+    margin-top: 4em;
+    /* border: 2px solid red; */
+  } 
+
 .card {
   cursor: pointer;
   border-radius: 10px;
