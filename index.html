@@ -21,16 +21,19 @@
         </div>
       </header>
       <main class="hero-section">
+        <!-- SMALL SIDEBAR -->
         <div id="tab">
           <div class="hamburger">
             <i class="fa-solid fa-bars fa-xl"></i>
           </div>
           <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-          <i class="fa-solid fa-house fa-xl"></i>
+          <i class="fa-solid fa-house fa-xl" id="home"></i>
           <i class="fa-solid fa-fire-flame-curved fa-xl"></i>
           <i class="fa-solid fa-tv fa-xl"></i>
           <i class="fa-solid fa-clapperboard fa-xl"></i>
         </div>
+        <!-- SMALL SIDEBAR -->
+        <!-- EXPANDED SIDEBAR -->
         <aside id="expand">
           <div class="hamburger" class="nav-item" style="align-items: center ; z-index: 3;">
             <p id="menu-text">Show less</p>
@@ -40,7 +43,7 @@
               <i class="fa-solid fa-magnifying-glass fa-xl"></i>
               <input
                 type="search"
-                name="searchmovies"
+                name="search-movies"
                 placeholder="search movie"
                 id="searchBox"
               />
@@ -65,68 +68,26 @@
             </ul>
           </div>
         </aside>
+        <!-- EXPANDED SIDEBAR -->
+        <!-- MOVIE SHOWCASE -->
         <section class="showcase">
           <!-- movies-select div start -->
           <div id="movies-select">
- <div class="genre-name"><h1>Discover Movies</h1></div>
-          <section id="movie-cards">
-            <div class="card">
-
-              <img src="./assets/cover.jpg" alt="" class="skeleton" />
-             
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt=""class="skeleton" />
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
-            </div>
-            <div class="card">
-                  <img src="./assets/cover.jpg" alt="" class="skeleton"/>
-            </div>
+       
+                <h1 class="genre-name"><div>
+                    <button class="prev"><i class="fa-solid fa-chevron-left fa-2x"></i></button>Discover Movies<button class="next"><i class="fa-solid fa-chevron-right fa-2x"></i></button>
+                </div>   </h1>
+                
+                <section id="movie-cards">
+                  <!-- API INSERTS MOVIE CARDS HERE -->
+              </section>
+              <!-- <section class="btns">
+              </section> -->
           </div>
-         
-        
-          <!-- End movie-cards list -->
-
-          <!-- MOVIE PREVIEW -->
-          <div id="movie-preview" class="hide">
+          <!-- movies-select div end -->
+      </main>
+      <!-- MOVIE PREVIEW SECTION -->
+        <div id="movie-preview" class="hide">
             <div class="textonbg skeleton">
               <button class="back">
                 Back
@@ -159,7 +120,7 @@
                    </div>
               </div>
             </div>
-            <div class="movie-description">
+            <article class="movie-description">
               <!-- <div class=" skeleton skeleton-text"></div>
               <div class=" skeleton skeleton-text skeleton-text__body"></div>
               <div class=" skeleton skeleton-text"></div>
@@ -173,9 +134,11 @@
               delectus soluta perferendis. Ullam quas necessitatibus impedit?
               Iure, sequi recusandae. Nemo laboriosam corporis sapiente fuga,
               aperiam, voluptates obcaecati porro accusantium sunt facere ut vel
-            </div>
-            <div class="casts">
+              </article>
+              <!-- CASTS SECTION -->
+            <section class="casts">
               <h2>Casts</h2>
+              <!-- CAST CARDS -->
               <div class="cast-list">
                 <div class="cast-card">
                   <img src="./assets/cover.jpg" alt="" class="skeleton"/>
@@ -198,12 +161,13 @@
                   <p>lorem 5</p>
                 </div>
               </div>
-            </div>
+              <!-- CAST CARDS -->
+            </section>
+              <!-- CASTS SECTION -->
           </div>
+      <!-- MOVIE PREVIEW SECTION -->
 
-          <!-- MOVIE PREVIEW END -->
-        </section>
-      </main>
+
     </div>
     <!-- movie preview -->
 
