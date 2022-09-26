@@ -18,7 +18,6 @@
 .dark{
     --text:#222;
     --black:white;
-    /* --white:black */
     --bg:rgb(245, 252, 252);
     --glass-blur: blur(25px) saturate(180%);
         --glass-color:rgba(32, 43, 63, 0.06);

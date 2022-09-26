@@ -9,6 +9,10 @@
     /* border: 2px solid red; */
     
 }
+.dontPoint{
+    pointer-events: none;
+
+}
 .active{
     color: var(--brand);
 }
