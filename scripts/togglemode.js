@@ -5,6 +5,7 @@ const popular_movies = `${api_url}movie/popular?api_key=${api_key}&language=en-U
 const discover_movies = `${api_url}discover/movie?api_key=${api_key}&language=en-US`;
 const tv_shows = `${api_url}tv/popular?api_key=${api_key}&language=en-US`;
 const trending_movies = `${api_url}trending/all/day?api_key=${api_key}&language=en-US`;
+const top_rated = `${api_url}discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${api_key}&language=en-US`;
 const search_url = `${api_url}search/multi?api_key=${api_key}&language=en-US&page=1`;
 
 const btn = document.querySelector(".fa-sun");
@@ -12,66 +13,34 @@ const wrapper = document.querySelector(".wrapper");
 const menu = document.querySelectorAll(".hamburger");
 let tablet = document.querySelector("#tab");
 let expanded = document.querySelector("#expand");
-let showcase = document.querySelector(".showcase");
+
 let moviePreview = document.querySelector("#movie-preview");
 let movieSelect = document.querySelector("#movies-select");
 let search = document.querySelector(".fa-magnifying-glass");
 let backBtn = document.querySelector(".back");
 let movieCardsSection = document.querySelector("#movie-cards");
-let moviecardTemplate = document.getElementById("card-template");
 let movieCard = document.getElementsByClassName("card");
-let apiFetch = [popular_movies, trending_movies, tv_shows];
-let cardslist = [];
-let cardImages = [];
+let genreName = document.querySelector(".name-btn");
+let cardsList = [];
 const maxCards = 20;
 let home = document.getElementById("home");
+const form = document.querySelector(".searchForm");
+const searchBox = document.querySelector("#searchBox");
+let textOnBg = document.querySelector(".textonbg");
+let rating = document.querySelector(".rating");
+let movieDes = document.querySelector(".movie-description");
+let spans = document.querySelectorAll(".span");
+let movieName = document.querySelector(".name");
+let heroSection = document.querySelector(".hero-section");
+let fetchFrom;
 
-const createCards = () => {
-  for (let i = 0; i < maxCards; i++) {
-    movieCard = document.createElement("div");
-    movieCard.classList.add("card");
-    movieCard.classList.add("skeleton");
-    let cardImg = document.createElement("img");
-    movieCard.append(cardImg);
-    movieCardsSection.append(movieCard);
-    cardslist.push(movieCard);
-  }
-};
-
-window.addEventListener("load", createCards);
-
-const getMovieCards = (e) => {
-  cardslist.forEach((card, index) => {
-    cardslist.innerHTML = "";
-    if (e.target.classList.contains("fa-fire-flame-curved")) {
-      fetch(`${apiFetch[1]}`)
-        .then((res) => res.json())
-        .then((movies) => {
-          card.innerHTML = `<img src=${img_path}${movies.results[index].poster_path}>`;
-        });
-    } else if (e.target.classList.contains("fa-tv")) {
-      fetch(`${apiFetch[2]}`)
-        .then((res) => res.json())
-        .then((movies) => {
-          card.innerHTML = `<img src=${img_path}${movies.results[index].poster_path}>`;
-        });
-    } else if (e.target.classList.contains("fa-house")) {
-      fetch(`${apiFetch[0]}`)
-        .then((res) => res.json())
-        .then((movies) => {
-          card.innerHTML = `<img src=${img_path}${movies.results[index].poster_path}>`;
-        });
-    }
-    // e.target.classList.add('active')
-
-  });
-};
-tablet.addEventListener("click", getMovieCards);
-
-window.addEventListener('load',()=>{
-  home.classList.add('active')
-  home.click()
-})
+let prev = document.querySelector(".prev");
+let next = document.querySelector(".next");
+let currentPage = 1;
+let nextPage = 2;
+let prevPage = 3;
+let lastUrl = "";
+let totalPages = 100;
 
 const toggleMode = () => {
   document.body.classList.toggle("dark");
@@ -85,78 +54,149 @@ const toggleMode = () => {
 };
 btn.addEventListener("click", toggleMode);
 
-const hideElements = (e) => {
-  // let clicked = false;
-  if (
-    e.target.parentNode.id === "tab" ||
-    e.target.classList.contains("hamburger") ||
-    e.target.classList.contains("fa-bars")
-  ) {
-    // clicked = true;
-    tablet.style.display = "none";
-    expanded.style.display = "block";
-    movieSelect.classList.add("opacity");
-    moviePreview.classList.add("opacity");
-    wrapper.classList.add("disablescroll");
-    cardslist.forEach((element) => {
-      console.log("moviecard");
-
-      element.removeEventListener("click", showMoviePreview);
+function getMovies(url) {
+  lastUrl = url;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.results.length !== 0) {
+        showMovies(data.results);
+        currentPage = data.page;
+        nextPage = currentPage + 1;
+        prevPage = currentPage - 1;
+        totalPages = data.total_pages;
+      } else {
+        moviePreview.innerHTML = "NO MOVIES";
+      }
     });
-  } else {
-    tablet.style.display = "flex";
-    expanded.style.display = "none";
-    movieSelect.classList.remove("opacity");
-    moviePreview.classList.remove("opacity");
-    wrapper.classList.remove("disablescroll");
-    cardslist.forEach((element) => {
-      console.log("moviecard");
-
-      element.addEventListener("click", showMoviePreview);
-    });
-  }
-};
-menu.forEach((element) => {
-  element.addEventListener("click", hideElements);
-});
-
-let herosection = document.querySelector(".hero-section");
-const showMoviePreview = (e) => {
-  if (e.target.parentNode.classList.contains("card")) {
-    wrapper.scrollTo(0, 0);
-    moviePreview.classList.remove("hide");
-    herosection.classList.add("hide");
-  }
-};
+}
 window.addEventListener("load", () => {
-  cardslist.forEach((element) => {
-    // console.log("moviecard");
-    element.addEventListener("click", showMoviePreview);
-  });
+  home.classList.add("active");
+  home.click();
 });
 
-const goBack = () => {
-  moviePreview.classList.add("hide");
-  herosection.classList.remove("hide");
-};
+function showMovies(data) {
+  movieCardsSection.innerHTML = "";
+  data.forEach((movie, index) => {
+    const { title, poster_path, overview, vote_average } = movie;
+    const movieCard = document.createElement("div");
+    movieCard.classList.add("card");
+    movieCard.classList.add("skeleton");
+    movieCard.setAttribute("id", index);
+    movieCard.innerHTML = `<img src=${img_path + poster_path}>`;
+    movieCardsSection.appendChild(movieCard);
+    cardsList.push(movieCard);
+  });
+}
 
-backBtn.addEventListener("click", goBack);
-
-const dontShow = (e) => {
-  if (hideElements) {
-    if (e.target !== expanded) {
-      tablet.style.display = "flex";
-      expanded.style.display = "none";
-      movieSelect.classList.remove("opacity");
-      moviePreview.classList.remove("opacity");
-      wrapper.classList.remove("disablescroll");
-      cardslist.forEach((element) => {
-        element.addEventListener("click", showMoviePreview);
-      });
-    }
+function pageCall(page) {
+  let split = lastUrl.split("?");
+  let query = split[1].split("&");
+  let key = query[query.length - 1].split("=");
+  if (key[0] != "page") {
+    let url = lastUrl + "&page=" + page;
+    getMovies(url);
+  } else {
+    key[1] = page.toString();
+    let newPage = key.join("=");
+    query[query.length - 1] = newPage;
+    let y = query.join("&");
+    let url = split[0] + `?` + y;
+    getMovies(url);
   }
-};
-movieSelect.addEventListener("click", dontShow);
-moviePreview.addEventListener("click", dontShow);
+}
+next.addEventListener("click", () => {
+  if (nextPage <= totalPages) {
+    pageCall(nextPage);
+  }
+});
+prev.addEventListener("click", () => {
+  if (prevPage > 0) {
+    pageCall(prevPage);
+  }
+});
 
-search.addEventListener("click", hideElements);
+function otherUrls(e) {
+  if (
+    e.target.classList.contains("fa-house") ||
+    e.target.classList.contains("nav-item")
+  ) {
+    fetchFrom = popular_movies;
+    getMovies(discover_movies);
+    genreName.innerHTML = "Discover Movies";
+  } else if (
+    e.target.classList.contains("fa-fire-flame-curved") ||
+    e.target.classList.contains("nav-item")
+  ) {
+    fetchFrom = trending_movies;
+    getMovies(trending_movies);
+    genreName.innerHTML = "Trending Movies";
+  } else if (
+    e.target.classList.contains("fa-tv") ||
+    e.target.classList.contains("nav-item")
+  ) {
+    fetchFrom = tv_shows;
+    getMovies(tv_shows);
+    genreName.innerHTML = "TV Shows";
+  } else if (
+    e.target.classList.contains("fa-clapperboard") ||
+    e.target.classList.contains("nav-item")
+  ) {
+    fetchFrom = top_rated;
+    getMovies(top_rated);
+    genreName.innerHTML = "Top Rated";
+  }
+}
+tablet.addEventListener("click", otherUrls);
+window.addEventListener("load", otherUrls);
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  wrapper.scroll(0, 0);
+  const searchValue = searchBox.value;
+  if (searchValue) {
+    movieSelect.click();
+    genreName.innerHTML = "Search Results";
+    getMovies(search_url + "&query=" + searchValue);
+  } else {
+    searchValue = "";
+  }
+});
+
+let clicked = false;
+function showSideBar(e) {
+  clicked = true;
+  if (
+    e.target.classList.contains("fa-bars") ||
+    e.target.classList.contains("hamburger") ||
+    e.target.id === "menu-text" ||
+    e.target.classList.contains("fa-magnifying-glass")
+  ) {
+    tablet.classList.toggle("hide");
+    expanded.classList.toggle("hide");
+    movieSelect.classList.toggle("opacity");
+    cardsList.forEach((card) => {
+      card.classList.add("dontPoint");
+    });
+    wrapper.classList.toggle("disablescroll");
+  }
+}
+search.addEventListener("click", showSideBar);
+search.addEventListener("click", () => {
+  searchBox.focus();
+});
+menu.forEach((element) => {
+  element.addEventListener("click", showSideBar);
+});
+function dontShow() {
+  if (clicked === true) {
+    tablet.classList.remove("hide");
+    expanded.classList.add("hide");
+    movieSelect.classList.remove("opacity");
+    wrapper.classList.remove("disablescroll");
+    cardsList.forEach((card) => {
+      card.classList.remove("dontPoint");
+    });
+  }
+}
+movieSelect.addEventListener("click", dontShow);
