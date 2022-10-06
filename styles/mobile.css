@@ -14,6 +14,7 @@
   #movie-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    /* place-items: center; */
     padding: 5px;
     gap: 30px 20px;
     top: 3em;

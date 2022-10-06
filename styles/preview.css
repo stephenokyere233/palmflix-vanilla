@@ -9,7 +9,7 @@
   background-size: contain;
   object-fit: contain;
   background-repeat: no-repeat;
-/* background-size: cover; */
+background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -19,6 +19,8 @@
   margin: 10px 20px;
   display: flex;
   color:var(--brand);
+  text-shadow: 2px 2px 2px var(--black);
+  /* outline: 2px solid red; */
   flex-direction: column;
 }
 .trailer {
@@ -46,12 +48,16 @@
   cursor: pointer;
   width: 80px;
   border: 2px solid var(--brand);
-  background: transparent;
+  background: var(--brand);
   color: white;
   margin: 20px;
   font-weight: bold;
   font-size: 15px;
   border-radius: 10px;
+  transition: 500ms;
+}
+.back:hover{
+  background: transparent;
 }
 .movie-info {
   display: flex;
