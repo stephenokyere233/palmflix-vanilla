@@ -28,9 +28,9 @@
           </div>
           <i class="fa-solid fa-magnifying-glass fa-xl"></i>
           <i class="fa-solid fa-house fa-xl" id="home"></i>
-          <i class="fa-solid fa-fire-flame-curved fa-xl"></i>
-          <i class="fa-solid fa-tv fa-xl"></i>
-          <i class="fa-solid fa-clapperboard fa-xl"></i>
+          <i class="fa-solid fa-fire-flame-curved fa-xl" id="trend"></i>
+          <i class="fa-solid fa-tv fa-xl" id="tv"></i>
+          <i class="fa-solid fa-clapperboard fa-xl" id="movieb"></i>
         </div>
         <!-- SMALL SIDEBAR -->
         <!-- EXPANDED SIDEBAR -->
@@ -38,7 +38,7 @@
           <div class="hamburger" class="nav-item" style="align-items: center ; z-index: 3;">
             <p id="menu-text">Show less</p>
           </div>
-          <div class="nav-list">
+          <div class="nav-list" >
             <form action="" class="searchForm">
               <i class="fa-solid fa-magnifying-glass fa-xl"></i>
               <input
@@ -48,22 +48,26 @@
                 id="searchBox"
               />
             </form>
-            <ul>
+            <ul class="check" >
               <div class="nav-item">
-                <i class="fa-solid fa-house"></i>
-                <p class="nav-item-text">Home</p>
+                <i class="fa-solid fa-house">
+</i>
+<p class="nav-item-text home">Home</p>
               </div>
               <div class="nav-item">
-                <i class="fa-solid fa-fire-flame-curved"></i>
-                <p class="nav-item-text">Trending</p>
-              </div>
-              <div class="nav-item">
-                <i class="fa-solid fa-clapperboard"></i>
-                <p class="nav-item-text">Movies</p>
+                <i class="fa-solid fa-fire-flame-curved"> </i>
+                <p class="nav-item-text trends">Trending</p>
+               
               </div>
               <div class="nav-item">
                 <i class="fa-solid fa-tv"></i>
-                <p class="nav-item-text">TV Shows</p>
+                <p class="nav-item-text shows">TV Shows</p>
+                <!-- <p class="nav-item-text"></p> -->
+              </div>
+              <div class="nav-item">
+                <i class="fa-solid fa-clapperboard"></i>
+                <p class="nav-item-text movies">Movies</p>
+                <!-- <p class="nav-item-text"></p> -->
               </div>
             </ul>
           </div>
@@ -90,8 +94,45 @@
       </main>
       <!-- MOVIE PREVIEW SECTION -->
         <div id="movie-preview" class="hide">
-      <!-- MOVIE PREVIEW SECTION -->
+          <div class="textonbg skeleton">
+              <button class="back">
+                Back
+              </button>
+              <div class="movie-banner">
+                <span class="movie-title">
+                  <h1 class="name"></h1>
+                  <button class="trailer"> <i class="fa-solid fa-play"></i>watch trailer</button>
+                </span>
+              </div>
+            </div>
+              <!-- <h1 class="name"></h1> -->
+            <div class="movie-info">
+              <span class="rating"> 7.4 </span>
+              <div class="other-info">
+                <div class="marks" >
+                  Status: <span class="span"></span>
+                </div>
+                 <div class="marks">
+
+                  Duration: <span class="span"></span>
+                </div>
+                   <div class="marks">
+
+                  Release Date: <span class="span"></span>
+                   </div>
+              </div>
+            </div>
+             <article class="movie-description">
+              </article>
+            <section class="casts">
+              <h2>Casts</h2>
+              <div class="cast-list">
+              </div>
+            </section>
+ 
+      <!--MOVIE PREVIEW SECTION-->
+      
     </div>
-    <!-- movie preview -->
+    <!-- movie preview-->
   </body>
 </html>
