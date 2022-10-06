@@ -41,7 +41,32 @@ let nextPage = 2;
 let prevPage = 3;
 let lastUrl = "";
 let totalPages = 100;
+let dataType = "movie";
 
+const showActive=(e)=>{
+  if (e.target.classList.contains("fa-house")) {
+    e.target.classList.add("active");
+    document.getElementById("tv").classList.remove("active");
+    document.getElementById("movieb").classList.remove("active");
+    document.getElementById("trend").classList.remove("active");
+  } else if (e.target.classList.contains("fa-fire-flame-curved")) {
+    e.target.classList.add("active");
+    document.getElementById("tv").classList.remove("active");
+    document.getElementById("movieb").classList.remove("active");
+    document.getElementById("home").classList.remove("active");
+  } else if (e.target.classList.contains("fa-tv")) {
+    e.target.classList.add("active");
+    document.getElementById("home").classList.remove("active");
+    document.getElementById("movieb").classList.remove("active");
+    document.getElementById("trend").classList.remove("active");
+  } else if (e.target.classList.contains("fa-clapperboard")) {
+    e.target.classList.add("active");
+    document.getElementById("tv").classList.remove("active");
+    document.getElementById("home").classList.remove("active");
+    document.getElementById("trend").classList.remove("active");
+  }
+}
+tablet.addEventListener('click',showActive)
 const toggleMode = () => {
   document.body.classList.toggle("dark");
   if (btn.classList.contains("fa-sun")) {
@@ -59,8 +84,9 @@ function getMovies(url) {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
+      // console.log(data.results);
       if (data.results.length !== 0) {
-        showMovies(data.results);
+        showMovieCards(data.results);
         currentPage = data.page;
         nextPage = currentPage + 1;
         prevPage = currentPage - 1;
@@ -68,26 +94,146 @@ function getMovies(url) {
       } else {
         moviePreview.innerHTML = "NO MOVIES";
       }
-    });
+    })
+    .catch((err) => console.log(`can't fetch data`));
 }
 window.addEventListener("load", () => {
   home.classList.add("active");
   home.click();
 });
-
-function showMovies(data) {
+function goBack() {
+  moviePreview.classList.add("hide");
+  heroSection.style.display = "flex";
+}
+backBtn.addEventListener("click", goBack);
+async function showMovieCards(data, e) {
   movieCardsSection.innerHTML = "";
   data.forEach((movie, index) => {
-    const { title, poster_path, overview, vote_average } = movie;
+    const {
+      title,
+      poster_path,
+      overview,
+      vote_average,
+      name,
+      id,
+      backdrop_path,
+    } = movie;
     const movieCard = document.createElement("div");
     movieCard.classList.add("card");
     movieCard.classList.add("skeleton");
-    movieCard.setAttribute("id", index);
+    movieCard.setAttribute("id", id);
+    movieCard.setAttribute("name", title ? title : name);
     movieCard.innerHTML = `<img src=${img_path + poster_path}>`;
     movieCardsSection.appendChild(movieCard);
     cardsList.push(movieCard);
   });
+
+  let CastList = document.querySelector(".cast-list");
+
+  async function getCast(id) {
+    const credit = `https://api.themoviedb.org/3/${dataType}/${id}/credits?api_key=${api_key}&language=en-US`;
+    fetch(`${credit}`)
+      .then((res) => res.json())
+      .then((casts) => {
+        console.log(casts);
+        CastList.innerHTML = "";
+        for (let i = 0; i < 10; i++) {
+          const castCard = document.createElement("div");
+          castCard.classList.add("cast-card");
+          const img = document.createElement("img");
+          castCard.append(img);
+          const castName = document.createElement("p");
+          castName.classList.add("cast-name");
+          castCard.appendChild(castName);
+          img.src = `${img_path + casts.cast[i].profile_path}`;
+          castName.textContent = `${casts.cast[i].name}`;
+          CastList.append(castCard);
+        }
+        console.log(casts.cast[1].name);
+      });
+  }
+
+  cardsList.forEach((element) => {
+    element.addEventListener("click", async function () {
+      // loading();
+      heroSection.style.display = "none";
+      moviePreview.classList.remove("hide");
+      wrapper.scroll(0, 0);
+      try {
+        const moviedata = await fetch(
+          `https://api.themoviedb.org/3/movie/${element.id}?api_key=${api_key}&language=en-US`
+        );
+        const tvdata = await fetch(
+          `https://api.themoviedb.org/3/tv/${element.id}?api_key=${api_key}&language=en-US`
+        );
+        if (!moviedata.ok && !tvdata.ok) throw new Error("eeeee");
+
+        const movieDataRes = await moviedata.json();
+        const tvDataRes = await tvdata.json();
+
+        if (movieDataRes.results ?? tvDataRes.results) {
+          const finalRes = [tvDataRes.results ?? movieDataRes.results]
+            .concat(tvDataRes.results ?? movieDataRes.results)
+            .filter((val) => val !== undefined);
+          return finalRes;
+        }
+
+        // Merges the two objects
+        const finalRes = Object.assign(movieDataRes, tvDataRes);
+        console.log(finalRes);
+        const {
+          poster_path,
+          title,
+          name,
+          backdrop_path,
+          id,
+          status,
+          vote_average,
+          release_date,
+          overview,
+          runtime,
+          first_air_date,
+          episode_run_time,
+        } = finalRes;
+        backdrop_path === null
+          ? (textOnBg.style.background = `url(${img_path + poster_path}`)
+          : (textOnBg.style.background = `url(${img_path + backdrop_path}`);
+        if (name === undefined) {
+          movieName.innerHTML = `${title}`;
+        } else {
+          movieName.innerHTML = `${name}`;
+        }
+        rating.textContent = `${vote_average.toFixed(1)}`;
+        movieDes.innerHTML = `${overview}`;
+        spans[0].textContent = `${status}`;
+        runtime === undefined
+          ? (spans[1].textContent = `${episode_run_time}mins`)
+          : (spans[1].textContent = `${runtime}mins`);
+        // spans[1].textContent = `${runtime}mins`;
+        if (release_date === undefined) {
+          spans[2].textContent = `${first_air_date}`;
+        } else {
+          spans[2].textContent = `${release_date}`;
+        }
+
+      } catch {
+        console.log((err) => {
+          "error";
+        });
+      }
+
+      getCast(element.id);
+    });
+  });
 }
+const loading = () => {
+  movieCardsSection.innerHTML = `  <div class="loading">
+      <img src="./assets/loading.gif" alt="">
+      <h1>
+        Loading.....
+      </h1>
+    </div>`;
+};
 
 function pageCall(page) {
   let split = lastUrl.split("?");
@@ -107,60 +253,90 @@ function pageCall(page) {
 }
 next.addEventListener("click", () => {
   if (nextPage <= totalPages) {
+    loading();
+    wrapper.scroll(0, 0);
     pageCall(nextPage);
   }
 });
 prev.addEventListener("click", () => {
   if (prevPage > 0) {
+    loading();
+    wrapper.scroll(0, 0);
     pageCall(prevPage);
   }
 });
 
+let isClicked = false;
 function otherUrls(e) {
+  isClicked = true;
+
   if (
     e.target.classList.contains("fa-house") ||
-    e.target.classList.contains("nav-item")
+    e.target.classList.contains("home")
   ) {
     fetchFrom = popular_movies;
     getMovies(discover_movies);
     genreName.innerHTML = "Discover Movies";
+    dataType = "movie";
+    loading();
   } else if (
     e.target.classList.contains("fa-fire-flame-curved") ||
-    e.target.classList.contains("nav-item")
+    e.target.classList.contains("trends")
   ) {
     fetchFrom = trending_movies;
     getMovies(trending_movies);
     genreName.innerHTML = "Trending Movies";
+    // try {
+      dataType = "movie";
+      // dataType = "tv";
+    // } catch {
+    //   console.log("none");
+    // }
+    loading();
   } else if (
     e.target.classList.contains("fa-tv") ||
-    e.target.classList.contains("nav-item")
+    e.target.classList.contains("movies")
   ) {
     fetchFrom = tv_shows;
     getMovies(tv_shows);
     genreName.innerHTML = "TV Shows";
+    dataType = "tv";
+    loading();
   } else if (
     e.target.classList.contains("fa-clapperboard") ||
-    e.target.classList.contains("nav-item")
+    e.target.classList.contains("shows")
   ) {
     fetchFrom = top_rated;
     getMovies(top_rated);
     genreName.innerHTML = "Top Rated";
+    dataType = "movie";
+    loading();
+
   }
 }
+let navItemList = document.querySelector("ul");
+// console.log(navItemList);
 tablet.addEventListener("click", otherUrls);
-window.addEventListener("load", otherUrls);
+expanded.addEventListener("click", otherUrls);
+expanded.addEventListener("click", (e) => {
+  movieSelect.click();
+});
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   wrapper.scroll(0, 0);
+  
   const searchValue = searchBox.value;
   if (searchValue) {
+    loading();
     movieSelect.click();
     genreName.innerHTML = "Search Results";
     getMovies(search_url + "&query=" + searchValue);
   } else {
     searchValue = "";
+    // movieCardsSection.innerHTML='sorry not found'
   }
+  searchValue = "";
 });
 
 let clicked = false;
