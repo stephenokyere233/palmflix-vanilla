@@ -131,6 +131,7 @@ ul i {
   width: 80%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .genre-name button {
   background: var(--brand);
