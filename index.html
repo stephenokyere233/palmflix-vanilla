@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Palmflix</title>
-    <script
-    src="https://kit.fontawesome.com/ebf7970d3f.js"
-    crossorigin="anonymous"
-    defer></script>
-    <script src="./scripts/togglemode.js" type="module" defer ></script>
+    <script src="https://kit.fontawesome.com/ebf7970d3f.js" crossorigin="anonymous" defer></script>
+    <script src="./scripts/togglemode.js" type="module" defer></script>
     <link rel="stylesheet" href="./styles/styles.css" />
   </head>
+
   <body>
     <div class="wrapper">
       <header>
@@ -35,29 +34,24 @@
         <!-- SMALL SIDEBAR -->
         <!-- EXPANDED SIDEBAR -->
         <aside id="expand" class="hide">
-          <div class="hamburger" class="nav-item" style="align-items: center ; z-index: 3;">
+          <div class="hamburger" class="nav-item" style="align-items: center ;
+            z-index: 3;">
             <p id="menu-text">Show less</p>
           </div>
-          <div class="nav-list" >
+          <div class="nav-list">
             <form action="" class="searchForm">
               <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-              <input
-                type="search"
-                name="search-movies"
-                placeholder="search movie"
-                id="searchBox"
-              />
+              <input type="search" name="search-movies" placeholder="search movie" id="searchBox" />
             </form>
-            <ul class="check" >
+            <ul class="check">
               <div class="nav-item">
-                <i class="fa-solid fa-house">
-</i>
-<p class="nav-item-text home">Home</p>
+                <i class="fa-solid fa-house"></i>
+                <p class="nav-item-text home">Home</p>
               </div>
               <div class="nav-item">
                 <i class="fa-solid fa-fire-flame-curved"> </i>
                 <p class="nav-item-text trends">Trending</p>
-               
+
               </div>
               <div class="nav-item">
                 <i class="fa-solid fa-tv"></i>
@@ -77,62 +71,78 @@
         <section class="showcase">
           <!-- movies-select div start -->
           <div id="movies-select">
-       
-                <h1 class="genre-name"><div>
-                    <button class="prev"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
-                   <span class="name-btn">
-                     Discover Movies
-                   </span><button class="next"><i class="fa-solid fa-chevron-right fa-2x"></i></button>
-                </div>   </h1>
-                
-                <section id="movie-cards">
-                  <!-- API INSERTS MOVIE CARDS HERE -->
-              </section>
-          
+
+            <h1 class="genre-name">
+              <div>
+                <button class="prev"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
+                <span class="name-btn">
+                  Discover Movies
+                </span><button class="next"><i class="fa-solid fa-chevron-right
+                    fa-2x"></i></button>
+              </div>
+            </h1>
+
+            <section id="movie-cards">
+              <!-- API INSERTS MOVIE CARDS HERE -->
+            </section>
+
           </div>
           <!-- movies-select div end -->
       </main>
       <!-- MOVIE PREVIEW SECTION -->
-        <div id="movie-preview" class="hide">
-          <div class="textonbg skeleton">
-              <button class="back">
-                Back
-              </button>
-              <div class="movie-banner">
-                <span class="movie-title">
-                  <h1 class="name"></h1>
-                  <button class="trailer"> <i class="fa-solid fa-play"></i>watch trailer</button>
-                </span>
-              </div>
-            </div>
-              <!-- <h1 class="name"></h1> -->
-            <div class="movie-info">
-              <span class="rating"> 7.4 </span>
-              <div class="other-info">
-                <div class="marks" >
-                  Status: <span class="span"></span>
-                </div>
-                 <div class="marks">
+      <div id="movie-preview" class="hide">
+        <!-- overlay video -->
+        <div id="myNav" class="overlay">
+          <!-- Button to close the overlay navigation -->
+          <a href="javascript:void(0)" class="closebtn">&times;</a>
+          <!-- Overlay content -->
+          <div class="overlay-content">
 
-                  Duration: <span class="span"></span>
-                </div>
-                   <div class="marks">
+          </div>
+        </div>
+        <!-- end overlay -->
 
-                  Release Date: <span class="span"></span>
-                   </div>
-              </div>
+        <div class="textonbg skeleton">
+          <button class="back">
+            Back
+          </button>
+          <div class="movie-banner">
+            <span class="movie-title">
+              <h1 class="name"></h1>
+              <button class="trailer"> <i class="fa-solid fa-play"></i>watch
+                trailer</button>
+            </span>
+          </div>
+        </div>
+        <!-- <h1 class="name"></h1> -->
+        <div class="movie-info">
+          <span class="rating"> 7.4 </span>
+          <div class="other-info">
+            <div class="marks">
+              Status: <span class="span"></span>
             </div>
-             <article class="movie-description">
-              </article>
-            <section class="casts">
-              <h2>Casts</h2>
-              <div class="cast-list">
-              </div>
-            </section>
- 
-      <!--MOVIE PREVIEW SECTION-->
-      
-    </div>
-    <!-- movie preview-->
+            <div class="marks">
+
+              Duration: <span class="span"></span>
+            </div>
+            <div class="marks">
+
+              Release Date: <span class="span"></span>
+            </div>
+          </div>
+        </div>
+        <article class="movie-description">
+        </article>
+        <section class="casts">
+          <h2>Casts</h2>
+          <div class="cast-list">
+          </div>
+        </section>
+
+        <!--MOVIE PREVIEW SECTION-->
+
+      </div>
+      <!-- movie preview-->
   </body>
+
 </html>
