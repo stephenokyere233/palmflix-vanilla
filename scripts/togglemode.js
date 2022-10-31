@@ -400,9 +400,10 @@ function playTrailer(id, names) {
                 overlayContent.innerHTML = `<iframe id=iframe width="560" height="315" src="https://www.youtube.com/embed/${key}?enablejsapi=1" title=${name} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
                 return;
               }
-            } else {
-              overlayContent.innerHTML = `<h1>Trailer Unavailable</h1>`;
             }
+            //  else {
+            //   overlayContent.innerHTML = `<h1>Trailer Unavailable</h1>`;
+            // }
           });
         } else {
           console.log("data unavailable");
