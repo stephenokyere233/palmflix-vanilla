@@ -32,6 +32,7 @@ let movieDes = document.querySelector(".movie-description");
 let spans = document.querySelectorAll(".span");
 let movieName = document.querySelector(".name");
 let heroSection = document.querySelector(".hero-section");
+let trailerBtn = document.querySelector(".trailer");
 let fetchFrom;
 
 let prev = document.querySelector(".prev");
@@ -43,7 +44,7 @@ let lastUrl = "";
 let totalPages = 100;
 let dataType = "movie";
 
-const showActive=(e)=>{
+const showActive = (e) => {
   if (e.target.classList.contains("fa-house")) {
     e.target.classList.add("active");
     document.getElementById("tv").classList.remove("active");
@@ -65,8 +66,8 @@ const showActive=(e)=>{
     document.getElementById("home").classList.remove("active");
     document.getElementById("trend").classList.remove("active");
   }
-}
-tablet.addEventListener('click',showActive)
+};
+tablet.addEventListener("click", showActive);
 const toggleMode = () => {
   document.body.classList.toggle("dark");
   if (btn.classList.contains("fa-sun")) {
@@ -108,7 +109,7 @@ function goBack() {
 backBtn.addEventListener("click", goBack);
 async function showMovieCards(data, e) {
   movieCardsSection.innerHTML = "";
-  data.forEach((movie, index) => {
+  data.forEach((movie) => {
     const {
       title,
       poster_path,
@@ -135,7 +136,7 @@ async function showMovieCards(data, e) {
     fetch(`${credit}`)
       .then((res) => res.json())
       .then((casts) => {
-        console.log(casts);
+        // console.log(casts);
         CastList.innerHTML = "";
         for (let i = 0; i < 10; i++) {
           const castCard = document.createElement("div");
@@ -149,7 +150,6 @@ async function showMovieCards(data, e) {
           castName.textContent = `${casts.cast[i].name}`;
           CastList.append(castCard);
         }
-        console.log(casts.cast[1].name);
       });
   }
 
@@ -180,7 +180,7 @@ async function showMovieCards(data, e) {
 
         // Merges the two objects
         const finalRes = Object.assign(movieDataRes, tvDataRes);
-        console.log(finalRes);
+        // console.log(finalRes);
         const {
           poster_path,
           title,
@@ -209,25 +209,26 @@ async function showMovieCards(data, e) {
         runtime === undefined
           ? (spans[1].textContent = `${episode_run_time}mins`)
           : (spans[1].textContent = `${runtime}mins`);
-        // spans[1].textContent = `${runtime}mins`;
         if (release_date === undefined) {
           spans[2].textContent = `${first_air_date}`;
         } else {
           spans[2].textContent = `${release_date}`;
         }
-
       } catch {
-        console.log((err) => {
-          "error";
-        });
+        console.log((err) => err);
       }
 
       getCast(element.id);
+      trailerBtn.addEventListener("click", () => {
+        playTrailer(element.id, name);
+      });
+
+      // playTrailer(element.id)
     });
   });
 }
 const loading = () => {
-  movieCardsSection.innerHTML = `  <div class="loading">
+  movieCardsSection.innerHTML = `<div class="loading">
       <img src="./assets/loading.gif" alt="">
       <h1>
         Loading.....
@@ -287,8 +288,8 @@ function otherUrls(e) {
     getMovies(trending_movies);
     genreName.innerHTML = "Trending Movies";
     // try {
-      dataType = "movie";
-      // dataType = "tv";
+    dataType = "movie";
+    // dataType = "tv";
     // } catch {
     //   console.log("none");
     // }
@@ -311,7 +312,6 @@ function otherUrls(e) {
     genreName.innerHTML = "Top Rated";
     dataType = "movie";
     loading();
-
   }
 }
 let navItemList = document.querySelector("ul");
@@ -325,8 +325,8 @@ expanded.addEventListener("click", (e) => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   wrapper.scroll(0, 0);
-  
-  const searchValue = searchBox.value;
+
+  let searchValue = searchBox.value;
   if (searchValue) {
     loading();
     movieSelect.click();
@@ -376,3 +376,69 @@ function dontShow() {
   }
 }
 movieSelect.addEventListener("click", dontShow);
+const overlayContent = document.querySelector(".overlay-content");
+let embed = [];
+function playTrailer(id, names) {
+  console.log("trailer playing");
+  console.log(id);
+  fetch(`${api_url}${dataType}/${id}/videos?api_key=${api_key}&language=en-US`)
+    .then((res) => res.json())
+    .then((data) => {
+      // console.log(data);
+      if (data) {
+        openNav();
+        if (data.results.length > 0) {
+          data.results.forEach((video) => {
+            let { name, key, site, type } = video;
+            if (site === "YouTube" && type === "Trailer") {
+              if (
+                name === "Official Trailer" ||
+                name.includes("Trailer" || name.includes(names))
+              ) {
+                console.log(video);
+                console.log("data available");
+                overlayContent.innerHTML = `<iframe id=iframe width="560" height="315" src="https://www.youtube.com/embed/${key}?enablejsapi=1" title=${name} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                return;
+              }
+            } else {
+              overlayContent.innerHTML = `<h1>Trailer Unavailable</h1>`;
+            }
+          });
+        } else {
+          console.log("data unavailable");
+
+          overlayContent.innerHTML = `<h1>Trailer Unavailable</h1>`;
+        }
+      }
+    });
+}
+// trailerBtn.addEventListener("click", playTrailer);
+
+// overlay video
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+  overlayContent.innerHTML = ``;
+  // embed = [];
+  // let iframe = document.getElementById("iframe").contentWindow;
+  // overlayContent.style.display=state=='hide'?'none':"";
+  // func=state=='hide'?'pauseVideo':'playVideo';
+  // iframe.postMessage({'event':'command',"func":""+func+"","args":""},'*')
+  // iframe.close()
+
+  // console.log(iframe);
+}
+let overlayClose = document.querySelector(".closebtn");
+overlayClose.addEventListener("click", closeNav);
+
+// function observer(){
+//   let options={
+//     root:null,
+//   }
+//   let observe=new IntersectionObserver(callback,options)
+
+// }
