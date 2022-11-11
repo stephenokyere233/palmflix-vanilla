@@ -71,6 +71,9 @@ const showActive = (e) => {
 };
 tablet.addEventListener("click", showActive);
 
+if (localStorage.getItem("theme") === null) {
+  localStorage.setItem("theme", "true");
+}
 check();
 btn.addEventListener("click", changeDark);
 
