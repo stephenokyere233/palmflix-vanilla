@@ -1,7 +1,7 @@
 export const btn = document.querySelector(".fa-sun");
-if (localStorage.getItem("theme") === null) {
-  localStorage.setItem("theme", "true");
-}
+// if (localStorage.getItem("theme") === null) {
+//   localStorage.setItem("theme", "true");
+// }
 export function check() {
   let current = localStorage.getItem("theme");
   if (current === "false") {
