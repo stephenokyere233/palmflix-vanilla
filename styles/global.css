@@ -1,0 +1,19 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body,
+.wrapper {
+    width: var(--w-full);
+    height: var(--h-full);
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    overflow-x: hidden;
+    transition: 500ms;
+    user-select: none;
+    font-display: fallback;
+}

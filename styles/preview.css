@@ -1,0 +1,115 @@
+.movie-banner {
+  /* width: 250px; */
+  max-width: 550px;
+  /* border: 2px solid red; */
+}
+.textonbg {
+  /* background: url(/assets/cover.jpg); */
+  background-color: rgba(0, 0, 0, 0.2);
+  background-size: contain;
+  object-fit: contain;
+  background-repeat: no-repeat;
+background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.movie-title {
+  align-self: flex-end;
+  margin: 10px 20px;
+  display: flex;
+  color:var(--brand);
+  text-shadow: 2px 2px 2px var(--black);
+  /* outline: 2px solid red; */
+  flex-direction: column;
+}
+.trailer {
+  padding: 10px;
+  margin-block: 20px;
+  text-transform: capitalize;
+  border-radius: 10px;
+  border: 2px solid var(--brand);
+  color: white;
+  width: 200px;
+  cursor: pointer;
+  background: var(--brand);
+}
+.marks {
+  color: var(--brand);
+}
+.marks span {
+  color: var(--text);
+}
+.trailer i {
+  margin: 0 10px;
+}
+.back {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  width: 80px;
+  border: 2px solid var(--brand);
+  background: var(--brand);
+  color: white;
+  margin: 20px;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 10px;
+  transition: 500ms;
+}
+.back:hover{
+  background: transparent;
+}
+.movie-info {
+  display: flex;
+  padding: 20px;
+}
+.rating {
+  box-shadow: var(--shadow);
+  width: 5em;
+  padding-block: 1em;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.other-info {
+  display: flex;
+  padding: 5px 20px;
+  min-width: 200px;
+  /* border: 2px solid red; */
+  flex-direction: column;
+  justify-content: space-around;
+}
+.movie-description {
+  padding: 20px;
+  line-height: 1.5em;
+}
+.casts {
+  margin-top: 30px;
+}
+.casts h2 {
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
+}
+.cast-card {
+  cursor: pointer;
+  border-radius: 10px;
+}
+.cast-card img {
+  border-radius: 10px;
+  height: 12em;
+  object-fit: cover;
+  overflow: hidden;
+}
+.cast-list {
+  flex-wrap: wrap;
+}
+.cast-card p {
+  text-align: center;
+}
+/* #movie-preview{
+  background: red;
+  pointer-events:auto;
+} */

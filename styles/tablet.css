@@ -1,0 +1,67 @@
+@media screen and (min-width: 700px) {
+  #tab {
+    width: 5em;
+  }
+  .textonbg {
+    height: 25em;
+  }
+  .other-info {
+    display: flex;
+    padding: 5px 20px;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .nav-list ul {
+    margin-left: 30px;
+    font-size: 20px;
+  }
+  #searchBox {
+    height: 2rem;
+    border-radius: 10px;
+  }
+  #expand {
+    background: var(--black);
+    width: 18%;
+  }
+  #movies-select {
+    margin-left: 5em;
+  }
+  #movie-cards {
+    display: flex;
+    justify-content: center;
+    top: 3.5em;
+  }
+  .card img {
+    width: 100%;
+  }
+  .genre-name {
+    width: 93%;
+  }
+  .card {
+    margin: 10px;
+    width: 170px;
+    height: 18em;
+    min-height: 15em;
+  }
+  .marks {
+    font-size: 14px;
+  }
+  .cast-list {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+  }
+  .cast-card {
+    width: 170px;
+  }
+  .cast-card img {
+    width: 100%;
+  }
+  .movie-title .name {
+    font-size: 2em;
+  }
+  .trailer {
+    font-size: 1.4em;
+  }
+}

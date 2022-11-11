@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palmflix</title>
+    <script src="https://kit.fontawesome.com/ebf7970d3f.js" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="./styles/styles.css" /> 
+  </head>
+
+  <body>
+    <div class="wrapper scrollhide">
+      <header>
+        <div class="logo">palmflix</div>
+        <div class="modes">
+          <i class="fa-regular fa-sun fa-2xl" style="cursor:pointer;"></i>
+        </div>
+      </header>
+      <main class="hero-section">
+        <!-- SMALL SIDEBAR -->
+        <div id="tab">
+          <div class="hamburger">
+            <i class="fa-solid fa-bars fa-xl"></i>
+          </div>
+          <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+          <i class="fa-solid fa-house fa-xl" id="home"></i>
+          <i class="fa-solid fa-fire-flame-curved fa-xl" id="trend"></i>
+          <i class="fa-solid fa-tv fa-xl" id="tv"></i>
+          <i class="fa-solid fa-clapperboard fa-xl" id="movieb"></i>
+        </div>
+        <!-- SMALL SIDEBAR -->
+        <!-- EXPANDED SIDEBAR -->
+        <aside id="expand" class="hide">
+          <div class="hamburger" class="nav-item" style="align-items: center ;
+            z-index: 3;">
+            <p id="menu-text">Show less</p>
+          </div>
+          <div class="nav-list">
+            <form action="" class="searchForm">
+              <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+              <input type="search" name="search-movies" placeholder="search movie" id="searchBox" />
+            </form>
+            <ul class="check">
+              <div class="nav-item">
+                <i class="fa-solid fa-house"></i>
+                <p class="nav-item-text home">Home</p>
+              </div>
+              <div class="nav-item">
+                <i class="fa-solid fa-fire-flame-curved"> </i>
+                <p class="nav-item-text trends">Trending</p>
+
+              </div>
+              <div class="nav-item">
+                <i class="fa-solid fa-tv"></i>
+                <p class="nav-item-text shows">TV Shows</p>
+                <!-- <p class="nav-item-text"></p> -->
+              </div>
+              <div class="nav-item">
+                <i class="fa-solid fa-clapperboard"></i>
+                <p class="nav-item-text movies">Movies</p>
+                <!-- <p class="nav-item-text"></p> -->
+              </div>
+            </ul>
+          </div>
+        </aside>
+        <!-- EXPANDED SIDEBAR -->
+        <!-- MOVIE SHOWCASE -->
+        <section class="showcase ">
+          <!-- movies-select div start -->
+          <div id="movies-select">
+
+            <h1 class="genre-name">
+              <div>
+                <button class="prev"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
+                <span class="name-btn">
+                  Discover Movies
+                </span><button class="next"><i class="fa-solid fa-chevron-right
+                    fa-2x"></i></button>
+              </div>
+            </h1>
+
+            <section id="movie-cards">
+              <!-- API INSERTS MOVIE CARDS HERE -->
+            </section>
+
+          </div>
+          <!-- movies-select div end -->
+      </main>
+      <!-- MOVIE PREVIEW SECTION -->
+      <div id="movie-preview" class="hide">
+        <!-- overlay video -->
+        <div id="myNav" class="overlay">
+          <!-- Button to close the overlay navigation -->
+          <a href="javascript:void(0)" class="closebtn">&times;</a>
+          <!-- Overlay content -->
+          <div class="overlay-content">
+
+          </div>
+        </div>
+        <!-- end overlay -->
+
+        <div class="textonbg skeleton">
+          <button class="back">
+            Back
+          </button>
+          <div class="movie-banner">
+            <span class="movie-title">
+              <h1 class="name"></h1>
+              <button class="trailer"> <i class="fa-solid fa-play"></i>watch
+                trailer</button>
+            </span>
+          </div>
+        </div>
+        <!-- <h1 class="name"></h1> -->
+        <div class="movie-info">
+          <span class="rating"> 7.4 </span>
+          <div class="other-info">
+            <div class="marks">
+              Status: <span class="span"></span>
+            </div>
+            <div class="marks">
+
+              Duration: <span class="span"></span>
+            </div>
+            <div class="marks">
+
+              Release Date: <span class="span"></span>
+            </div>
+          </div>
+        </div>
+        <article class="movie-description">
+        </article>
+        <section class="casts">
+          <h2>Casts</h2>
+          <div class="cast-list">
+          </div>
+        </section>
+
+        <!--MOVIE PREVIEW SECTION-->
+
+      </div>
+      <!-- movie preview-->
+    <script src="./index.js" type="module" defer></script>
+
+  </body>
+
+</html>

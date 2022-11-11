@@ -1,0 +1,18 @@
+.hide {
+  display: none;
+}
+.opacity{
+    opacity: 30%;
+}
+.disablescroll{
+    overflow-y: hidden;
+    /* border: 2px solid red; */
+    
+}
+.dontPoint{
+    pointer-events: none;
+
+}
+.active{
+    color: var(--brand);
+}
