@@ -88,8 +88,8 @@ function check() {
     btn.classList.remove("fa-moon");
   }
 }
-
-check();
+window.addEventListener('load',check)
+// check();
 function changeDark() {
   let current = localStorage.getItem("theme");
   if (current === "true") {
