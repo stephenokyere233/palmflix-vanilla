@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@700&family=Ubuntu:wght@700&display=swap');
+:root{
+    --text:azure;
+    --brand:blueviolet;
+    --bg:#222;
+    --black:black;
+    --white:white;
+    --shadow:0px 0px 2px black;
+    --font:'Sora', sans-serif;
+    --glass-blur:blur(17px) saturate(104%);
+    --glass-color:rgba(196, 169, 228, 0.11);
+    --h-full:100vh;
+    --w-full:100vw;
+    --glass-border:1px solid rgba(255, 255, 255, 0.125);
+
+
+}
+.light{
+    --text:#222;
+    --black:white;
+    --bg:rgb(245, 252, 252);
+    --glass-blur: blur(25px) saturate(180%);
+        --glass-color:rgba(32, 43, 63, 0.06);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+  
+ 

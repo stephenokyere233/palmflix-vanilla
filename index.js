@@ -10,7 +10,7 @@ import {
   search_url,
 } from "../keys.js";
 
-import { btn, toggleMode } from "./darkmode.js";
+import { btn,check,changeDark } from "./darkmode.js";
 
 const wrapper = document.querySelector(".wrapper");
 const menu = document.querySelectorAll(".hamburger");
@@ -70,7 +70,9 @@ const showActive = (e) => {
   }
 };
 tablet.addEventListener("click", showActive);
-btn.addEventListener("click", toggleMode);
+
+check();
+btn.addEventListener("click", changeDark);
 
 function getMovies(url) {
   lastUrl = url;
@@ -101,12 +103,7 @@ backBtn.addEventListener("click", goBack);
 async function showMovieCards(data, e) {
   movieCardsSection.innerHTML = "";
   data.forEach((movie) => {
-    const {
-      title,
-      poster_path,
-      name,
-      id
-    } = movie;
+    const { title, poster_path, name, id } = movie;
     const movieCard = document.createElement("div");
     movieCard.classList.add("card");
     movieCard.classList.add("skeleton");
@@ -209,7 +206,6 @@ async function showMovieCards(data, e) {
       trailerBtn.addEventListener("click", () => {
         playTrailer(element.id, name);
       });
-
     });
   });
 }
