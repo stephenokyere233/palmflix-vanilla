@@ -18,6 +18,13 @@ header {
   width: 100%;
   box-shadow: var(--shadow);
 }
+.scrollhide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollhide::-webkit-scrollbar {
+  display: none;
+}
 #tab {
   display: flex;
   flex-direction: column;
@@ -80,7 +87,7 @@ ul i {
   /* justify-content: center; */
 }
 .nav-item p {
-  cursor:pointer;
+  cursor: pointer;
   padding-left: 10px;
 }
 #tab i {
@@ -97,10 +104,10 @@ ul i {
   justify-content: center;
   align-items: center;
 }
-.loading img{
+.loading img {
   background: transparent;
   width: 150px;
-  
+
   /* background-clip: border-box;
   backface-visibility: hidden; */
 }
@@ -124,6 +131,7 @@ ul i {
   position: relative;
   justify-content: center;
   align-items: center;
+  
 }
 .showcase {
   width: 100%;
