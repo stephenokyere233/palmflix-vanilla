@@ -10,7 +10,7 @@ import {
   search_url,
 } from "../keys.js";
 
-import { btn,check,changeDark } from "./darkmode.js";
+// import { btn,check,changeDark } from "./darkmode.js";
 
 const wrapper = document.querySelector(".wrapper");
 const menu = document.querySelectorAll(".hamburger");
@@ -74,7 +74,36 @@ tablet.addEventListener("click", showActive);
 if (localStorage.getItem("theme") === null) {
   localStorage.setItem("theme", "true");
 }
+const btn = document.querySelector(".fa-sun");
+
+function check() {
+  let current = localStorage.getItem("theme");
+  if (current === "false") {
+    document.body.classList.add("light");
+    btn.classList.remove("fa-sun");
+    btn.classList.add("fa-moon");
+  } else {
+    document.body.classList.remove("light");
+    btn.classList.add("fa-sun");
+    btn.classList.remove("fa-moon");
+  }
+}
+
 check();
+function changeDark() {
+  let current = localStorage.getItem("theme");
+  if (current === "true") {
+    localStorage.setItem("theme", "false");
+    document.body.classList.add("light");
+    btn.classList.remove("fa-sun");
+    btn.classList.add("fa-moon");
+  } else {
+    localStorage.setItem("theme", "true");
+    document.body.classList.remove("light");
+    btn.classList.add("fa-sun");
+    btn.classList.remove("fa-moon");
+  }
+  }
 btn.addEventListener("click", changeDark);
 
 function getMovies(url) {
