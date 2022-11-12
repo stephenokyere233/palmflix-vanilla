@@ -46,30 +46,42 @@ let lastUrl = "";
 let totalPages = 100;
 let dataType = "movie";
 
-const showActive = (e) => {
-  if (e.target.classList.contains("fa-house")) {
-    e.target.classList.add("active");
-    document.getElementById("tv").classList.remove("active");
-    document.getElementById("movieb").classList.remove("active");
-    document.getElementById("trend").classList.remove("active");
-  } else if (e.target.classList.contains("fa-fire-flame-curved")) {
-    e.target.classList.add("active");
-    document.getElementById("tv").classList.remove("active");
-    document.getElementById("movieb").classList.remove("active");
-    document.getElementById("home").classList.remove("active");
-  } else if (e.target.classList.contains("fa-tv")) {
-    e.target.classList.add("active");
-    document.getElementById("home").classList.remove("active");
-    document.getElementById("movieb").classList.remove("active");
-    document.getElementById("trend").classList.remove("active");
-  } else if (e.target.classList.contains("fa-clapperboard")) {
-    e.target.classList.add("active");
-    document.getElementById("tv").classList.remove("active");
-    document.getElementById("home").classList.remove("active");
-    document.getElementById("trend").classList.remove("active");
+// const showActive = (e) => {
+//   if (e.target.classList.contains("fa-house")) {
+//     e.target.classList.add("active");
+//     document.getElementById("tv").classList.remove("active");
+//     document.getElementById("movieb").classList.remove("active");
+//     document.getElementById("trend").classList.remove("active");
+//   } else if (e.target.classList.contains("fa-fire-flame-curved")) {
+//     e.target.classList.add("active");
+//     document.getElementById("tv").classList.remove("active");
+//     document.getElementById("movieb").classList.remove("active");
+//     document.getElementById("home").classList.remove("active");
+//   } else if (e.target.classList.contains("fa-tv")) {
+//     e.target.classList.add("active");
+//     document.getElementById("home").classList.remove("active");
+//     document.getElementById("movieb").classList.remove("active");
+//     document.getElementById("trend").classList.remove("active");
+//   } else if (e.target.classList.contains("fa-clapperboard")) {
+//     e.target.classList.add("active");
+//     document.getElementById("tv").classList.remove("active");
+//     document.getElementById("home").classList.remove("active");
+//     document.getElementById("trend").classList.remove("active");
+//   }
+// };
+let tabBtn=document.querySelectorAll('.tabBtn')
+const showActive=(e)=>{
+  if (!e.target.classList.contains('tabBtn')){
+    return
   }
-};
+  tabBtn.forEach(tabBtn => {
+    tabBtn.classList.remove('active')
+    return
+  });
+  e.target.classList.add('active')
+}
 tablet.addEventListener("click", showActive);
+// expanded.addEventListener("click", showActive);
 
 window.addEventListener("load", check);
 btn.addEventListener("click", changeDark);
